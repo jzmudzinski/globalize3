@@ -1,6 +1,10 @@
 ActiveRecord::Migration.verbose = false
 
 ActiveRecord::Schema.define do
+  create_table :translations, :force => true do |t|
+    t.string   :blah
+  end
+
   create_table :blogs, :force => true do |t|
     t.string   :description
   end
@@ -83,5 +87,15 @@ ActiveRecord::Schema.define do
     t.index :number
     t.index :tag
     t.index :created_at
+  end
+
+  create_table 'UPPERCASE_TABLE_NAME', :force => true do |t|
+    t.string :name
+  end
+
+  create_table :uppercase_table_name_translations, :force => true do |t|
+    t.integer 'UPPERCASE_TABLE_NAME_id'
+    t.string     :locale
+    t.string     :name
   end
 end
